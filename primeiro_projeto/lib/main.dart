@@ -42,7 +42,6 @@ class TelaInicial extends StatelessWidget {
               width: 50, 
               height: 50, 
               color: Colors.blueGrey,
-              margin: EdgeInsets.only(top: 20),
             ),
             Container(
               width: 50,
@@ -57,7 +56,7 @@ class TelaInicial extends StatelessWidget {
 
             Row(
               spacing: 30, // espaçamento entre os componentes
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
                   width: 50, 
