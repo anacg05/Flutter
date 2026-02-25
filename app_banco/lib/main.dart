@@ -1,4 +1,7 @@
 import 'package:app_banco/Screens/PixScreen.dart';
+import 'package:app_banco/screens/CartaoScreen.dart';
+import 'package:app_banco/screens/BoletoScreen.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         textTheme: GoogleFonts.interTextTheme(Theme.of(context).textTheme),
       ),
-      home: TelaInicial(),
+      home: const TelaInicial(),
     );
   }
 }
@@ -48,8 +51,8 @@ class TelaInicial extends StatelessWidget {
       body: Column(
         children: [
           // TEXTO DE BOAS-VINDAS
-          Padding(
-            padding: const EdgeInsets.only(left: 20, top: 30),
+          const Padding(
+            padding: EdgeInsets.only(left: 20, top: 30),
             child: Align(
               alignment: Alignment.centerLeft,
               child: Text(
@@ -57,7 +60,7 @@ class TelaInicial extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF171d3f),
+                  color: Color(0xFF171D3F),
                 ),
               ),
             ),
@@ -76,8 +79,8 @@ class TelaInicial extends StatelessWidget {
             ),
           ),
 
-          Padding(
-            padding: const EdgeInsets.only(left: 20, bottom: 10),
+          const Padding(
+            padding: EdgeInsets.only(left: 20, bottom: 20),
             child: Align(
               alignment: Alignment.centerLeft,
               child: Text(
@@ -85,68 +88,64 @@ class TelaInicial extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w600,
-                  color: Color(0xFF171d3f),
+                  color: Color(0xFF171D3F),
                 ),
               ),
             ),
           ),
 
-          // CONTEÚDO PRINCIPAL
+          // BOTÕES
           Expanded(
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  // BOTÃO PIX
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF00B686),
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 24,
-                        vertical: 14,
-                      ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const Pixscreen(),
-                        ),
-                      );
-                    },
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Image.asset('assets/pix.png', height: 24, width: 24),
-                        const SizedBox(width: 8),
-                        const Text(
-                          'PIX',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
+            child: Align(
+              alignment: Alignment.topCenter,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 30),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    botaoGradiente(
+                      imagem: 'assets/pix.png',
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const PixScreen(),
                           ),
-                        ),
-                      ],
+                        );
+                      },
                     ),
-                  ),
 
-                  const SizedBox(height: 20),
+                    const SizedBox(width: 60),
 
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: const Text('Botão 2'),
-                  ),
+                    // BOTÃO CARTAO
+                    botaoGradiente(
+                      imagem: 'assets/cartao.png',
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const CartaoScreen(),
+                          ),
+                        );
+                      },
+                    ),
 
-                  const SizedBox(height: 20),
+                    const SizedBox(width: 60),
 
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: const Text('Botão 3'),
-                  ),
-                ],
+                    // BOTAO BOLETO
+                    botaoGradiente(
+                      imagem: 'assets/boleto.png',
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const BoletoScreen(),
+                          ),
+                        );
+                      },
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -154,4 +153,29 @@ class TelaInicial extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget botaoGradiente({required String imagem, required VoidCallback onTap}) {
+  return InkWell(
+    borderRadius: BorderRadius.circular(14),
+    onTap: onTap,
+    child: Container(
+      padding: const EdgeInsets.all(18),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(14),
+        gradient: const LinearGradient(
+          colors: [
+            Color(0xFF28cccc), // verde
+            Color(0xFF04a8fc), // azul
+          ],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+        ),
+        boxShadow: [
+          BoxShadow(color: Colors.black12, blurRadius: 8, offset: Offset(0, 4)),
+        ],
+      ),
+      child: Image.asset(imagem, height: 28, width: 28),
+    ),
+  );
 }

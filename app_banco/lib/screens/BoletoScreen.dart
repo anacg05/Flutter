@@ -2,17 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class PixScreen extends StatefulWidget {
-  const PixScreen({super.key});
+class BoletoScreen extends StatefulWidget {
+  const BoletoScreen({super.key});
 
   @override
-  State<PixScreen> createState() => _PixScreenState();
+  State<BoletoScreen> createState() => _BoletoScreenState();
 }
 
-class _PixScreenState extends State<PixScreen> {
+class _BoletoScreenState extends State<BoletoScreen> {
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       backgroundColor: const Color(0xffF2F4F5),
 
@@ -39,7 +38,7 @@ class _PixScreenState extends State<PixScreen> {
             child: Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                'Transferência via PIX',
+                'Transferência via Boleto',
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,

@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class PixScreen extends StatefulWidget {
-  const PixScreen({super.key});
+class CartaoScreen extends StatefulWidget {
+  const CartaoScreen({super.key});
 
   @override
-  State<PixScreen> createState() => _PixScreenState();
+  State<CartaoScreen> createState() => _CartaoScreenState();
 }
 
-class _PixScreenState extends State<PixScreen> {
+class _CartaoScreenState extends State<CartaoScreen> {
   @override
   Widget build(BuildContext context) {
     
@@ -39,7 +39,7 @@ class _PixScreenState extends State<PixScreen> {
             child: Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                'Transferência via PIX',
+                'Transferência via Cartão',
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,

@@ -58,6 +58,8 @@ flutter:
   # Imagens
   assets:
     - assets/pix.png
+    - assets/boleto.png
+    - assets/cartao.png
     - assets/image.png
     - assets/logo-gradient.svg
 
