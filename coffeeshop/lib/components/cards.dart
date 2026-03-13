@@ -17,10 +17,10 @@ class Cards extends StatelessWidget {
     return Container(
       width: 380,
       height: 110,
-      margin: const EdgeInsets.only(bottom: 5, top: 15),
+      margin: const EdgeInsets.only(bottom: 3, top: 15),
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
-        color: Color.fromARGB(255, 235, 235, 235),
+        color: Color.fromARGB(255, 231, 231, 231),
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(color: Colors.black26, blurRadius: 6, offset: Offset(0, 3)),

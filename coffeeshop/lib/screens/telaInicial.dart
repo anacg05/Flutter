@@ -10,22 +10,49 @@ class Telainicial extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Coffee Shop",
-        style: TextStyle(
-          color: Colors.white,
-        ),        ),
-        backgroundColor: const Color.fromARGB(255, 85, 40, 25),
-      ),
+      body: Stack(
+        children: [
 
-      body: Center(
-        child: Column(
-          children: [
-            Titulo(texto: "Bem vindo ao App de café"), // aparece o texto Coffee Shop
-            Descricao(texto: "Clique no botão para entrar"),
-            BotaoPrincipal(pagina: Principal(), texto: "Entrar"),
-          ],
-        ),
+          // IMAGEM DE FUNDO
+          SizedBox.expand(
+            child: Image.asset(
+              "assets/imagem.jpg",
+              fit: BoxFit.cover,
+            ),
+          ),
+
+          Container(
+            color: Colors.black.withOpacity(0.4),
+          ),
+
+          // CONTEÚDO
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(30),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+
+                  Titulo(texto: "Coffee Shop"),
+
+                  const SizedBox(height: 20),
+
+                  Descricao(
+                    texto: "O melhor café da cidade",
+                    cor: Colors.white,
+                  ),
+
+                  const SizedBox(height: 40),
+
+                  BotaoPrincipal(
+                    pagina: Principal(),
+                    texto: "Entrar",
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

@@ -9,9 +9,9 @@ class Titulo extends StatelessWidget {
     return Text(
       texto,
       style: TextStyle(
-        fontSize: 30,
-        color: const Color.fromARGB(255, 34, 25, 22),
-        fontWeight: FontWeight.bold,
+        fontSize: 50,
+        color: const Color.fromARGB(255, 255, 255, 255),
+        fontWeight: FontWeight.w700,
         letterSpacing: 1,
       ),
     );
