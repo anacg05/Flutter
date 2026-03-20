@@ -13,7 +13,7 @@ class Links extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 200,
+      width: MediaQuery.of(context).size.width* 0.2,  // 20% da tela
       height: 200,
       color: const Color.fromARGB(255, 255, 255, 255),
       child: Column(
