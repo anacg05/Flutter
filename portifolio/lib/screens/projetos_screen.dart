@@ -7,18 +7,14 @@ class ProjetosScreen extends StatefulWidget {
 
 class _ProjetosScreenState extends State<ProjetosScreen> {
   List<Map<String, dynamic>> projetos = [
+    {'nome': 'TCC', 'imagem': 'assets/images/tcc.png', 'curtido': false},
     {
       'nome': 'Servidor de Filmes',
       'imagem': 'assets/images/filmes.png',
       'curtido': false,
     },
     {
-      'nome': 'TCC',
-      'imagem': 'assets/images/tcc.png', 
-      'curtido': false
-    },
-    {
-      'nome': 'Leitura para Crianças',
+      'nome': 'Site para Crianças',
       'imagem': 'assets/images/alice.png',
       'curtido': false,
     },
@@ -34,40 +30,73 @@ class _ProjetosScreenState extends State<ProjetosScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Projetos'),
+        title: Text('Meus Projetos', style: TextStyle(color: Colors.white)),
         backgroundColor: Color(0xFF0A1F44),
+        centerTitle: false,
+        iconTheme: IconThemeData(color: Colors.white),
       ),
+
       body: ListView.builder(
+        padding: EdgeInsets.all(10),
         itemCount: projetos.length,
         itemBuilder: (context, index) {
-          return Card(
-            margin: EdgeInsets.all(10),
+          final projeto = projetos[index];
+
+          return Container(
+            margin: EdgeInsets.only(bottom: 20),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(15),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black12,
+                  blurRadius: 6,
+                  offset: Offset(0, 3),
+                ),
+              ],
+            ),
+
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // IMAGEM
                 ClipRRect(
-                  borderRadius: BorderRadius.vertical(top: Radius.circular(8)),
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
                   child: Image.asset(
-                    projetos[index]['imagem'],
-                    height: 150,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
+                    projeto['imagem'],
+                    width: MediaQuery.of(context).size.width * 0.95,
+                    fit: BoxFit.fitWidth,
                   ),
                 ),
 
-                //TEXTO + LIKE
-                ListTile(
-                  title: Text(projetos[index]['nome']),
-                  trailing: IconButton(
-                    icon: Icon(
-                      projetos[index]['curtido']
-                          ? Icons.favorite
-                          : Icons.favorite_border,
-                      color: projetos[index]['curtido']
-                          ? Colors.red
-                          : Colors.grey,
-                    ),
-                    onPressed: () => toggleLike(index),
+                // CONTEÚDO
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      // TÍTULO
+                      Expanded(
+                        child: Text(
+                          projeto['nome'],
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+
+                      // CURTIR
+                      IconButton(
+                        icon: Icon(
+                          projeto['curtido']
+                              ? Icons.favorite
+                              : Icons.favorite_border,
+                          color: projeto['curtido'] ? Colors.red : Colors.grey,
+                        ),
+                        onPressed: () => toggleLike(index),
+                      ),
+                    ],
                   ),
                 ),
               ],

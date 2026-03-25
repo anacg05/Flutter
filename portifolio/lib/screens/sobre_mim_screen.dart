@@ -25,7 +25,7 @@ class SobreMimScreen extends StatelessWidget {
             // FOTO
             Center(
               child: Container(
-                padding: EdgeInsets.all(3), // espessura da borda
+                padding: EdgeInsets.all(3), 
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(color: Color(0xFF0A1F44), width: 2),
