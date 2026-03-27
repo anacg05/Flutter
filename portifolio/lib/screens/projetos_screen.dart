@@ -2,20 +2,25 @@ import 'package:flutter/material.dart';
 import '../components/project_card.dart';
 
 class ProjetosScreen extends StatefulWidget {
+  const ProjetosScreen({super.key});
+
   @override
-  _ProjetosScreenState createState() => _ProjetosScreenState();
+  State<ProjetosScreen> createState() => _ProjetosScreenState();
 }
 
 class _ProjetosScreenState extends State<ProjetosScreen> {
-  List<Map<String, dynamic>> projetos = [
-    {'nome': 'TCC', 'imagem': 'assets/images/tcc.png', 'curtido': false},
+  static const Color primaryBlue = Color(0xFF0A1F44);
+  static const Color accentBlue = Color(0xFF1A3A77);
+
+  final List<Map<String, dynamic>> projetos = [
+    {'nome': 'TCC MELIA', 'imagem': 'assets/images/tcc.png', 'curtido': false},
     {
-      'nome': 'Servidor de Filmes',
+      'nome': 'GrizFlix',
       'imagem': 'assets/images/filmes.png',
       'curtido': false,
     },
     {
-      'nome': 'Site para Crianças',
+      'nome': 'Bem-vindo, Pequeno Leitor',
       'imagem': 'assets/images/alice.png',
       'curtido': false,
     },
@@ -30,19 +35,30 @@ class _ProjetosScreenState extends State<ProjetosScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFF5F6FA),
       appBar: AppBar(
-        title: Text('Meus Projetos', style: TextStyle(color: Colors.white)),
-        backgroundColor: Color(0xFF0A1F44),
-        centerTitle: false,
-        iconTheme: IconThemeData(color: Colors.white),
+        title: const Text(
+          'Meus Projetos',
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
+        centerTitle: false, 
+        elevation: 0,
+        iconTheme: const IconThemeData(color: Colors.white),
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [primaryBlue, accentBlue],
+            ),
+          ),
+        ),
       ),
-
       body: ListView.builder(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(20),
         itemCount: projetos.length,
         itemBuilder: (context, index) {
           final projeto = projetos[index];
-
           return ProjectCard(
             nome: projeto['nome'],
             imagem: projeto['imagem'],

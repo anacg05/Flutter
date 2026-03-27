@@ -7,6 +7,7 @@ class ProjectCard extends StatelessWidget {
   final VoidCallback onLike;
 
   const ProjectCard({
+    super.key,
     required this.nome,
     required this.imagem,
     required this.curtido,
@@ -16,57 +17,48 @@ class ProjectCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 20),
+      margin: const EdgeInsets.only(bottom: 20),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(
             color: Colors.black12,
-            blurRadius: 6,
-            offset: Offset(0, 3),
+            blurRadius: 8,
+            offset: const Offset(0, 4),
           ),
         ],
       ),
-
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-
-          // IMAGEM
           ClipRRect(
-            borderRadius: BorderRadius.vertical(
-              top: Radius.circular(15),
-            ),
+            borderRadius: const BorderRadius.vertical(top: Radius.circular(15)),
             child: Image.asset(
               imagem,
               width: double.infinity,
-              fit: BoxFit.fitWidth,
+              height: 200,
+              fit: BoxFit.cover,
             ),
           ),
 
-          // CONTEÚDO
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-
                 Expanded(
                   child: Text(
                     nome,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
-
                 IconButton(
                   icon: Icon(
-                    curtido
-                        ? Icons.favorite
-                        : Icons.favorite_border,
+                    curtido ? Icons.favorite : Icons.favorite_border,
                     color: curtido ? Colors.red : Colors.grey,
                   ),
                   onPressed: onLike,

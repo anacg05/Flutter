@@ -3,23 +3,22 @@ import 'screens/home_screen.dart';
 import 'screens/projetos_screen.dart';
 import 'screens/sobre_mim_screen.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Portfólio',
+      title: 'Meu portifólio',
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
         '/': (context) => HomeScreen(),
-        '/sobremim': (context) => SobreMimScreen(),
-        '/projetos': (context) => ProjetosScreen(),
+        '/sobremim': (context) => const SobreMimScreen(),
+        '/projetos': (context) => const ProjetosScreen(),
       },
     );
   }
 }
-
