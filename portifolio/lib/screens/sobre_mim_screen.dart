@@ -180,7 +180,7 @@ class SobreMimScreen extends StatelessWidget {
           child: const CircleAvatar(
             radius: 65,
             backgroundColor: Colors.white,
-            backgroundImage: AssetImage('assets/images/eu.jpg'), 
+            backgroundImage: AssetImage('assets/images/eu.jpg'),
           ),
         ),
         const SizedBox(height: 15),
@@ -188,7 +188,7 @@ class SobreMimScreen extends StatelessWidget {
           'Ana Clara Grizotto',
           style: TextStyle(
             fontSize: 26,
-            fontWeight: FontWeight.w900,
+            fontWeight: FontWeight.bold,
             color: primaryBlue,
             letterSpacing: -0.5,
           ),
