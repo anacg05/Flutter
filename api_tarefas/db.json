@@ -1,0 +1,28 @@
+{
+    "tasks":[
+        {
+            "id": 1,
+            "title": "Acordar e escovar os dentes"
+        },
+        {
+            "id": 2,
+            "title": "Tomar banho"
+        },
+        {
+            "id": 3,
+            "title": "Vestir"
+        },
+        {
+            "id": 4,
+            "title": "Se maquiar"
+        },
+        {
+            "id": 5,
+            "title": "Tomar café da manhã"
+        },
+        {
+            "id": 6,
+            "title": "Ir para o trabalho"
+        }
+    ]
+}
