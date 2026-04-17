@@ -1,4 +1,4 @@
-import 'package:app_tarefas/navigation/navigation.navbar.dart';
+import 'package:app_tarefas/screens/gerenciador_total.dart'; 
 import 'package:flutter/material.dart';
 
 class Splashscreen extends StatefulWidget {
@@ -20,7 +20,7 @@ class _SplashscreenState extends State<Splashscreen> {
       () {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => const NavBar()),
+          MaterialPageRoute(builder: (context) => const GerenciadorTotal()),
         );
       },
     );
@@ -29,45 +29,61 @@ class _SplashscreenState extends State<Splashscreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.teal.shade300,
+      backgroundColor: const Color(0xFF23627C), 
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(
-              Icons.checklist_rtl_rounded, 
-              size: 100, 
-              color: Colors.white,
+            Container(
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: const Color(0xFFD3EDEF), 
+                shape: BoxShape.circle,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.1),
+                    blurRadius: 10,
+                    offset: const Offset(0, 5),
+                  ),
+                ],
+              ),
+              child: const Icon(
+                Icons.checklist_rtl_rounded,
+                size: 80,
+                color: Color(0xFF23BBB7), 
+              ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 30),
             const Text(
               "Minhas Tarefas",
               style: TextStyle(
                 fontSize: 32,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-                letterSpacing: 1.5,
+                fontWeight: FontWeight.w900,
+                color: Color(0xFFF0EADF), 
+                letterSpacing: 1.2,
               ),
             ),
             const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 40),
+              padding: EdgeInsets.symmetric(horizontal: 60),
               child: Divider(
-                color: Colors.white54,
+                color: Color(0xFF23BBB7),
                 height: 40,
-                thickness: 1.5,
+                thickness: 2,
               ),
             ),
             const Text(
               "Gerenciamento de Tarefas",
               style: TextStyle(
-                fontSize: 16,
-                color: Colors.white,
-                fontStyle: FontStyle.italic,
+                fontSize: 18, 
+                color: Color(0xFFD3EDEF), 
+                letterSpacing: 1.1,
+                fontWeight: FontWeight.w500, 
               ),
             ),
-            const SizedBox(height: 50),
+            const SizedBox(height: 60),
             const CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+              valueColor: AlwaysStoppedAnimation<Color>(Color(0xFF23BBB7)),
+              strokeWidth: 3,
             ),
           ],
         ),
