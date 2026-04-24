@@ -1,3 +1,4 @@
+import 'package:app_tarefas/screens/local.dart';
 import 'package:app_tarefas/screens/tela_delete.dart';
 import 'package:app_tarefas/screens/tela_get.dart';
 import 'package:app_tarefas/screens/tela_post.dart';
@@ -19,10 +20,11 @@ class _NavbarState extends State<NavBar> {
     const TelaGet(),
     const TelaDelete(),
     const TelaPost(),
-    const TelaPut()
+    const TelaPut(),
+    const TelaLocal()
   ];
 
-  void mudarIndex(int novoIndex){    // função para mudar a tela
+  void mudarIndex(int novoIndex){    
     setState(() {
       indexAtual = novoIndex;
     });
@@ -57,6 +59,10 @@ class _NavbarState extends State<NavBar> {
           BottomNavigationBarItem(
             icon: Icon(Icons.edit_calendar_rounded), 
             label: "Editar",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.data_array_rounded), 
+            label: "Dados",
           ),
         ],
       ),

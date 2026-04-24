@@ -1,4 +1,5 @@
-import 'package:app_tarefas/screens/gerenciador_total.dart'; 
+import 'package:app_tarefas/navigation/navigation.navbar.dart';
+import 'package:app_tarefas/screens/gerenciador_total.dart';
 import 'package:flutter/material.dart';
 
 class Splashscreen extends StatefulWidget {
@@ -20,7 +21,7 @@ class _SplashscreenState extends State<Splashscreen> {
       () {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => const GerenciadorTotal()),
+          MaterialPageRoute(builder: (context) => const NavBar()),
         );
       },
     );
