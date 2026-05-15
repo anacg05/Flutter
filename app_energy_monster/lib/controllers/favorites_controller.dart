@@ -1,28 +1,42 @@
+import 'package:flutter/material.dart'; // Importante para o ChangeNotifier
 import 'package:shared_preferences/shared_preferences.dart';
 
-class FavoritesController {
-  // Persistir dados em dispositivos móveis
+class FavoritesController extends ChangeNotifier {
   static const String _key = 'favoritos_monster';
+  List<String> _favoritos = [];
+
+  // Getters para acessar a lista
+  List<String> get favoritos => _favoritos;
+
+  // carrega os favoritos assim que a classe é criada
+  FavoritesController() {
+    _loadFavorites();
+  }
+
+  // Carrega a lista do armazenamento interno
+  Future<void> _loadFavorites() async {
+    final prefs = await SharedPreferences.getInstance();
+    _favoritos = prefs.getStringList(_key) ?? [];
+    notifyListeners(); 
+  }
 
   // Salva ou remove um ID da lista de favoritos
   Future<void> toggleFavorite(String monsterId) async {
     final prefs = await SharedPreferences.getInstance();
-    List<String> favoritos = prefs.getStringList(_key) ?? [];
-
-    if (favoritos.contains(monsterId)) {
-      favoritos.remove(monsterId);
+    
+    if (_favoritos.contains(monsterId)) {
+      _favoritos.remove(monsterId);
     } else {
-      favoritos.add(monsterId);
+      _favoritos.add(monsterId);
     }
 
-    // modificações no armazenamento interno
-    await prefs.setStringList(_key, favoritos);
+    await prefs.setStringList(_key, _favoritos);
+    
+    notifyListeners();
   }
 
-  // Verifica se um item é favorito
-  Future<bool> isFavorite(String monsterId) async {
-    final prefs = await SharedPreferences.getInstance();
-    List<String> favoritos = prefs.getStringList(_key) ?? [];
-    return favoritos.contains(monsterId);
+  // Verifica se um item é favorit
+  bool isFavorite(String monsterId) {
+    return _favoritos.contains(monsterId);
   }
 }

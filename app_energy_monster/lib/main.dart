@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
-import 'screens/home_screen.dart'; // Importa sua tela principal
-import 'theme/colors.dart'; // Importa sua paleta Monster
+import 'package:provider/provider.dart';
+import 'screens/home_screen.dart';
+import 'theme/colors.dart';
+import 'controllers/favorites_controller.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [ChangeNotifierProvider(create: (_) => FavoritesController())],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -14,17 +21,18 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Monster Zone App',
       debugShowCheckedModeBanner: false,
-      
+
       theme: ThemeData(
         brightness: Brightness.dark,
-        primaryColor: MonsterColors.neonGreen,
+        primaryColor: MonsterColors.mangoLoco,
         scaffoldBackgroundColor: MonsterColors.backgroundBlack,
         appBarTheme: const AppBarTheme(
           elevation: 0,
           centerTitle: true,
+          backgroundColor: Colors.transparent,
         ),
       ),
-      
+
       home: const HomeScreen(),
     );
   }

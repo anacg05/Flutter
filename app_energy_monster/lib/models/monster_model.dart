@@ -1,35 +1,37 @@
 class Monster {
   final String id;
   final String nome;
-  final String sabor;
+  final String descricao;
   final String imagemUrl;
-  final double preco;
+  final String hexColor;
 
   Monster({
     required this.id,
     required this.nome,
-    required this.sabor,
+    required this.descricao,
     required this.imagemUrl,
-    required this.preco,
+    required this.hexColor,
   });
 
+  // Converte JSON da API para o Objeto 
   factory Monster.fromJson(Map<String, dynamic> json) {
     return Monster(
-      id: json['id'],
-      nome: json['nome'],
-      sabor: json['sabor'],
-      imagemUrl: json['imagemUrl'],
-      preco: json['preco'].toDouble(),
+      id: json['id'].toString(),
+      nome: json['nome'] ?? '',
+      descricao: json['descricao'] ?? '',
+      imagemUrl: json['imagemUrl'] ?? '',
+      hexColor: json['hexColor'] ?? '0xFFFFFFFF',
     );
   }
 
+  // Converte o Objeto para JSON 
   Map<String, dynamic> toJson() {
     return {
       'id': id,
       'nome': nome,
-      'sabor': sabor,
+      'descricao': descricao,
       'imagemUrl': imagemUrl,
-      'preco': preco,
+      'hexColor': hexColor,
     };
   }
 }

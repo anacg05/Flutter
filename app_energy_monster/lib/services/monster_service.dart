@@ -1,11 +1,10 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import '../models/monster.dart';
+import '../models/monster_model.dart';
 
 class MonsterService {
-  // Simulação de uma URL
   final String url =
-      "https://6643c6836c6a6513132479f4.mockapi.io/api/v1/monsters";
+      "https://api-monster-dag3.onrender.com/db.json";
 
   // comunicação GET
   Future<List<Monster>> fetchMonsters() async {
