@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart'; // Importante para o ChangeNotifier
+import 'package:flutter/material.dart'; 
 import 'package:shared_preferences/shared_preferences.dart';
 
 class FavoritesController extends ChangeNotifier {
@@ -35,7 +35,7 @@ class FavoritesController extends ChangeNotifier {
     notifyListeners();
   }
 
-  // Verifica se um item é favorit
+  // Verifica se um item é favorito
   bool isFavorite(String monsterId) {
     return _favoritos.contains(monsterId);
   }

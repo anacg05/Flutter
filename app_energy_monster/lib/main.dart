@@ -3,11 +3,15 @@ import 'package:provider/provider.dart';
 import 'screens/home_screen.dart';
 import 'theme/colors.dart';
 import 'controllers/favorites_controller.dart';
+import 'controllers/cart_controller.dart'; 
 
 void main() {
   runApp(
     MultiProvider(
-      providers: [ChangeNotifierProvider(create: (_) => FavoritesController())],
+      providers: [
+        ChangeNotifierProvider(create: (_) => FavoritesController()),
+        ChangeNotifierProvider(create: (_) => CartController()), 
+      ],
       child: const MyApp(),
     ),
   );
