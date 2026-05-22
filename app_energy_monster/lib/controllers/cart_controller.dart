@@ -32,7 +32,7 @@ class CartController with ChangeNotifier {
     notifyListeners();
   }
 
-  // Diminui a quantidade. Se chegar a 0, remove o item.
+  // Diminui a quantidade. Se chegar a 0, remove o item
   void diminuirQuantidade(String id) {
     final index = _itens.indexWhere((item) => item.monster.id == id);
     if (index >= 0) {

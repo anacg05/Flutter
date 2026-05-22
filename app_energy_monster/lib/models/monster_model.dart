@@ -1,4 +1,4 @@
-// Classe Base (Molde Geral)
+// Classe Base 
 class Monster {
   final String id;
   final String nome;

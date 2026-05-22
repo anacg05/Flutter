@@ -260,7 +260,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   const SizedBox(width: 12),
                   CategoryCard(
                     title: "PUNCH",
-                    icon: Icons.toys_outlined,
+                    icon: Icons.blender,
                     accentColor: Colors.red,
                     isSelected: selectedCategory == "PUNCH",
                     onTap: () => setState(() => selectedCategory = "PUNCH"),
